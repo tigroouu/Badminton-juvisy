@@ -1,0 +1,257 @@
+:root {
+  --red: #ff0000;
+  --text: #22262a;
+  --muted: #565d64;
+  --link: #30638d;
+  --link-hover: #954b56;
+  --border: #dfe3e7;
+  --card-header-bg: rgba(34, 38, 42, 0.03);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+  --max-width: 1320px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #fff;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+a:hover { color: var(--link-hover); }
+
+/* Header */
+.site-header {
+  background: var(--red);
+  width: 100%;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #fff;
+  margin-right: auto;
+}
+.brand:hover { color: #fff; }
+
+.brand-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.brand-name {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+.main-nav a:hover,
+.main-nav a.active {
+  border-bottom-color: #fff;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Layout */
+.layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+main#main { min-width: 0; }
+
+.view { display: none; }
+.view.active { display: block; animation: fade .25s ease; }
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+}
+h1:focus {
+  outline: none;
+}
+h1:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 4px;
+}
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 1.75rem 0 0.75rem;
+}
+h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.5rem;
+}
+
+p, ul, .table-wrap { margin: 0 0 1rem; }
+ul { padding-left: 1.25rem; }
+li { margin-bottom: 0.35rem; }
+
+.note {
+  font-style: italic;
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+}
+thead th {
+  background: var(--card-header-bg);
+}
+
+.schedule-figure {
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.schedule-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.schedule-figure figcaption {
+  padding: 0.6rem 1rem;
+  background: var(--card-header-bg);
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Sidebar card */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.card-header {
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  background: var(--card-header-bg);
+  border-bottom: 1px solid var(--border);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.card-body {
+  padding: 1.25rem;
+}
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.partners img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+/* Footer */
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .nav-toggle { display: flex; }
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  .main-nav.open { display: flex; }
+  .brand-name { font-size: 1.4rem; }
+  .brand-logo { width: 56px; height: 56px; }
+}
